@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система бронирования тестовых стендов</title>
+</head>
+<body>
+    <h1>Пользователи</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.last_name }} {{ user.first_name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h1>Оборудование</h1>
+    <table border="1">
+        <tr>
+            <th>Тип оборудования</th>
+            <th>IP-адрес</th>
+            <th>Количество процессоров</th>
+            <th>Объем памяти</th>
+        </tr>
+        {% for stand in test_stands %}
+            <tr>
+                <td>{{ stand.stand_type }}</td>
+                <td>{{ stand.ip_address }}</td>
+                <td>{{ stand.cpu_count }}</td>
+                <td>{{ stand.memory_size }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <h1>Бронирования</h1>
+    <table border="1">
+        <tr>
+            <th>ID бронирования</th>
+            <th>Пользователь</th>
+            <th>Оборудование</th>
+            <th>Дата бронирования</th>
+            <th>Статус</th>
+            <th>Дата завершения</th>
+            <th>Действия</th>
+        </tr>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.user_id }}</td>
+                <td>{{ booking.stand_id }}</td>
+                <td>{{ booking.start_time }}</td>
+                <td>{{ booking.completed }}</td>
+                <td>{{ booking.end_time }}</td>
+                <td><a href="/update_status/{{ booking.id }}">Изменить статус</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <a href="/add_user">Добавить пользователя</a><br>
+    <a href="/add_stand">Добавить оборудование</a><br>
+    <a href="/make_booking">Забронировать оборудование</a>
+</body>
+</html>

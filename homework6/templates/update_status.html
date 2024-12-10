@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление статуса бронирования</title>
+</head>
+<body>
+    <h1>Обновление статуса бронирования</h1>
+    <form method="post" action="/update_status/{{ booking.id}}">
+        <label for="completed">Новый статус:</label>
+        <select id="completed" name="completed" required>
+            <option value="false" {% if not booking.completed %}selected{% endif %}>Активно</option>
+            <option value="true" {% if booking.completed %}selected{% endif %}>Завершено</option>
+        </select><br><br>
+
+        <label for="end_time">Дата завершения:</label>
+        <input type="date" id="end_time" name="end_time">
+
+        <button type="submit">Обновить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронирование оборудования</title>
+</head>
+<body>
+    <h1>Бронирование оборудования</h1>
+    <form method="post" action="/make_booking">
+        <label for="user_id">Пользователь:</label>
+        <select id="user_id" name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user[0] }}">{{ user[1] }} {{ user[2] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="stand_id">Оборудование:</label>
+        <select id="stand_id" name="stand_id" required>
+            {% for stand in stands %}
+                <option value="{{ stand[0] }}">{{ stand[1] }}, IP: {{ stand[2] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="start_time">Дата бронирования:</label>
+        <input type="date" id="start_time" name="start_time" required><br><br>
+
+        <button type="submit">Забронировать</button>
+    </form>
+</body>
+</html>

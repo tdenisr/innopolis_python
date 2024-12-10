@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление оборудования</title>
+</head>
+<body>
+    <h1>Добавление оборудования</h1>
+    <form method="post" action="/add_stand">
+        <label for="stand_type">Тип оборудования:</label>
+        <input type="text" id="stand_type" name="stand_type" required><br><br>
+
+        <label for="operating_system">Операционная система</label>
+        <input type="text" id="operating_system" name="operating_system" required><br><br>
+
+        <label for="os_version">Версия ОС</label>
+        <input type="text" id="os_version" name="os_version" required><br><br>
+
+        <label for="ip_address">IP-адрес:</label>
+        <input type="text" id="ip_address" name="ip_address" required><br><br>
+
+        <label for="cpu_count">Количество процессоров:</label>
+        <input type="number" id="cpu_count" name="cpu_count" min="1" required><br><br>
+
+        <label for="memory_size">Объем памяти (ГБ):</label>
+        <input type="number" id="memory_size" name="memory_size" min="1" required><br><br>
+
+
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>
